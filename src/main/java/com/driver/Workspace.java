@@ -4,6 +4,8 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import java.lang.reflect.Array;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.*;
 
 public class Workspace extends Gmail{
@@ -12,12 +14,14 @@ public class Workspace extends Gmail{
 
     public Workspace(String emailId) {
         // The inboxCapacity is equal to the maximum value an integer can store.
+
         super(emailId,Integer.MAX_VALUE);
         this.calendar = new ArrayList<>();
     }
 
     public void addMeeting(Meeting meeting){
         //add the meeting to calendar
+
         calendar.add(meeting);
     }
 
@@ -37,8 +41,7 @@ public class Workspace extends Gmail{
             maxMeeting ++;
         }
         for(int i = 0; i< calendar.size() ;i++) {
-//                System.out.println("start  : " + calendar.get(i).getStartTime());
-//                System.out.println("End  :" + calendar.get(i).getEndTime());
+
 
             if(calendar.get(i).getStartTime().compareTo(limit)>0){
                 maxMeeting++;
@@ -50,3 +53,4 @@ public class Workspace extends Gmail{
 
     }
 }
+
